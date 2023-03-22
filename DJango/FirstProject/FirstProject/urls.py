@@ -22,4 +22,5 @@ urlpatterns = [
     path('welcome/',views.display),
     path('welcome2/',views.show),
     path('hello/',views.hello),
+    path('dtime/',views.senddatetime),
     ]

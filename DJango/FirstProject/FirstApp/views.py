@@ -100,3 +100,43 @@ def hello(request):
 	'''
 	return HttpResponse(ss)
     
+
+import time;	
+def senddatetime(request):
+	print("dtime/ url is requested & senddatetime() is executed");
+	ct = time.ctime()
+	print("Client Request Date & time on server :: ",ct);
+	ss='''
+	<html>
+		<head>
+			<title>Date-time Webpage</title>
+			<style>
+				h1{
+					color:Blue;
+				}
+				h2{
+					color:Green;
+				}
+				h3{
+					color:Red;
+				}
+				h1,h2,h3{
+					background-color:plum;
+					width:60%;
+					border:2px Solid Brown;
+				}
+			</style>
+		</head>
+		<body>
+			<center>
+				<h1>Welcome to DJango-User..!!!</h1>
+				<hr color='brown' width='80%'/>
+				<h2>Server-Date & Time :: </h2>
+				<hr color='brown' width='80%'/>
+				<h3>''',ct,'''</h3>
+			</center>
+		</body>
+	</html>
+	'''
+	return HttpResponse(ss);
+
