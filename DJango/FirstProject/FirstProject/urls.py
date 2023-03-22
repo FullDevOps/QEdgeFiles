@@ -18,6 +18,17 @@ from django.urls import path
 from FirstApp import views
 from MultiViewsApp import views as v1;	##new-App views
 
+#  Here views.py is there in FirstApp and also MultiViewsApp
+# (Hence for MultiViewsApp, we use v1 as alias in import-stmt)
+
+#from App1 import views;
+#from App2 import views;
+#approach1
+# from App1.views import f11;
+# from App2.views import f22;
+#approach2
+from App1 import views as v11;
+from App2 import views as v22;
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/',views.display),
@@ -29,5 +40,13 @@ urlpatterns = [
 	path('mrng/',v1.f1),
 	path('aftr/',v1.f2),
 	path('evng/',v1.f3),
+
+    #approach1
+	# path('hello/',f11),
+	# path('datetime/',f22),
+	
+	#approach2
+	path('hello1/',v11.f11),
+	path('datetime1/',v22.f22)
     
     ]
