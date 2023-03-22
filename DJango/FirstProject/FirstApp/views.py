@@ -3,11 +3,12 @@ from django.http import HttpResponse;
 
 # Create your views here.
 def display(request): #view-function
+	print("welcome url is requested and display() is excuted") # printing message on server terminal or display not on the webpage print means in terminal
 	ss = "<center><h2 style='color:Blue;'>Hello User, Welcome to Django First-Project First-App</h2><hr /></center>";
 	return HttpResponse(ss);
 
-
 def show(request): 
+	print("welcome2/ url is requested and show() is excuted")
 	ss = '''<!--
 	HTML Webpage to display 'Welcome-Message' with different Headings 
 	(D:\temp\HTML\Welcome.html)
@@ -63,8 +64,8 @@ def show(request):
 '''
 	return HttpResponse(ss); 
 
-
 def hello(request):
+	print("hello/ url is requested & hello() is executed");
 	ss = '''
 	<!DOCTYPE html>
     <head>
