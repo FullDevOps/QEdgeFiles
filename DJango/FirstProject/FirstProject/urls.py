@@ -29,6 +29,8 @@ from MultiViewsApp import views as v1;	##new-App views
 #approach2
 from App1 import views as v11;
 from App2 import views as v22;
+from django.urls import re_path
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/',views.display),
@@ -36,6 +38,7 @@ urlpatterns = [
     path('hello/',views.hello),
     path('dtime/',views.senddatetime),
 
+    re_path("^.*$",views.homepage),
     #mulitple-urls same view-func
 	path('firstdemo/',views.demo),
 	path('seconddemo/',views.demo),
