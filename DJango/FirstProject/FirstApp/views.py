@@ -62,3 +62,40 @@ def show(request):
 </html>
 '''
 	return HttpResponse(ss); 
+
+
+def hello(request):
+	ss = '''
+	<!DOCTYPE html>
+    <head>
+        <titel>HEllo Webpage</titel>
+        <style>
+            h1{
+                color:blueviolet;
+            }
+            h2{
+                color:greenyellow;
+            }
+            h3{
+                color:red;
+            }
+            h1,h2,h3{
+                background-color: plum;
+                width: 60%;
+                width: 2px Solid Brown;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello user...!!!</h1>
+        <hr color="Brown" width="80%"/>
+        <h2>Welcome to django app...</h2>
+        <hr color="red" width="80%"/>
+        <h3>Have a NICE Day dear ...! </h3>
+        <hr color="greenyellow" width="90%"/>
+	
+    </body>
+	
+	'''
+	return HttpResponse(ss)
+    
