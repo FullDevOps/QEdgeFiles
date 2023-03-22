@@ -36,6 +36,11 @@ urlpatterns = [
     path('hello/',views.hello),
     path('dtime/',views.senddatetime),
 
+    #mulitple-urls same view-func
+	path('firstdemo/',views.demo),
+	path('seconddemo/',views.demo),
+	path('thirddemo/',views.demo),
+
     #MultiViewsApp as v1(alias to views.py)
 	path('mrng/',v1.f1),
 	path('aftr/',v1.f2),
