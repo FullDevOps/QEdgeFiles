@@ -20,4 +20,5 @@ from FirstApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/',views.display),
-]
+    path('welcome2/',views.show),
+    ]
