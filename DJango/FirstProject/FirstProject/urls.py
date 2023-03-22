@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from FirstApp import views
+from MultiViewsApp import views as v1;	##new-App views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,10 @@ urlpatterns = [
     path('welcome2/',views.show),
     path('hello/',views.hello),
     path('dtime/',views.senddatetime),
+
+    #MultiViewsApp as v1(alias to views.py)
+	path('mrng/',v1.f1),
+	path('aftr/',v1.f2),
+	path('evng/',v1.f3),
+    
     ]
