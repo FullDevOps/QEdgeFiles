@@ -16,8 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MyApp1 import views
+from MultiViewsApp import views as v1
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', views.display),
+
+    # single-app(MultiViewsApp) & multiple-views
+    path('mrng/', v1.f1),
+    path('aftr/', v1.f2),
+    path('even/', v1.f3),
 ]
