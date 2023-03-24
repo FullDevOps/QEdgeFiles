@@ -15,11 +15,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-
-from django.urls import path  # new
-
+from django.urls import path
+from django.urls import re_path
 from MyApp1 import views
-from MultiViewsApp import views as v1;
+from MultiViewsApp import views as v1
 
 # from App1 import views;
 # from App2 import views;
@@ -32,14 +31,17 @@ from App2.views import f22
 from App1 import views as v11
 from App2 import views as v22
 
-urlpatterns = {
+urlpatterns = [
     path('admin/', admin.site.urls),
 
     # firstApp
     # url(r'^welcome/',views.display) #old-method
     path('welcome/', views.display),
 
-    # multiViewsApp
+    # multiple-urls with same single-view
+    path('test/', views.display),
+    re_path('^.*$', views.display),
+
     path('mrng/', v1.f1),
     path('aftr/', v1.f2),
     path('even/', v1.f3),
@@ -53,4 +55,4 @@ urlpatterns = {
     path('hello1/', v11.f11),
     path('datetime1/', v22.f22)
 
-}
+]
