@@ -13,17 +13,44 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from MyApp1 import views
-from MultiViewsApp import views as v1
 
-urlpatterns = [
+from django.contrib import admin
+
+from django.urls import path  # new
+
+from MyApp1 import views
+from MultiViewsApp import views as v1;
+
+# from App1 import views;
+# from App2 import views;
+
+# multiple-apps and mulitple-views
+# approach1(specific-content)
+from App1.views import f11
+from App2.views import f22
+# approach2(alias)
+from App1 import views as v11
+from App2 import views as v22
+
+urlpatterns = {
     path('admin/', admin.site.urls),
+
+    # firstApp
+    # url(r'^welcome/',views.display) #old-method
     path('welcome/', views.display),
 
-    # single-app(MultiViewsApp) & multiple-views
+    # multiViewsApp
     path('mrng/', v1.f1),
     path('aftr/', v1.f2),
     path('even/', v1.f3),
-]
+
+    # multiple-apps with multiple-views
+    # approach1
+    path('hello/', f11),
+    path('datetime/', f22),
+
+    # approach2
+    path('hello1/', v11.f11),
+    path('datetime1/', v22.f22)
+
+}
