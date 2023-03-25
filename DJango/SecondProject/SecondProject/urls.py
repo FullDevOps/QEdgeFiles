@@ -26,4 +26,8 @@ urlpatterns = [
     #secondapp
     path('students1/', v1.students1),
     path('students2/', v1.students2),
+
+    #template-tags-vars
+    path('datetime/', views.datetimefunction),
+
 ]
