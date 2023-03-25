@@ -30,6 +30,7 @@ urlpatterns = [
     #template-tags-vars
     path('datetime/', views.datetimefunction),
     path('studdatetime/', views.student_datetime),
+    path('wishes2/', views.wishes2)
 
 
 ]
