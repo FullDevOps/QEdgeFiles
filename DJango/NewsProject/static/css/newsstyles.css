@@ -1,0 +1,19 @@
+body{
+    background-color: lightyellow;
+}
+h1{
+    color:blue;
+    background-color: lightyellow;
+    text-align: center;
+    border:2px Solid Red;
+}
+img{
+    width:200px;
+    height:150px;
+}
+span{
+    background-color: yellow;
+    border: 1px Solid red;
+    padding:2px;
+    color:darkred;
+}
