@@ -23,5 +23,6 @@ urlpatterns = [
     path('wishes3/', views.wishes3),
     path('imggallery/', views.imagegallery),
     path('imggallery2/', views.imagegallery2),
+    path('wishes4/', views.wishes4),
 
 ]
