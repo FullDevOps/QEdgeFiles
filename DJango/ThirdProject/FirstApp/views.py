@@ -26,4 +26,11 @@ def imagegallery(request):
     date1 = datetime.datetime.now()
     msg1 = '***DJango-Image-Gallery***'
     dict1 = {'date1': date1, 'msg1': msg1}
-    return render(request, 'FirstApp/imgsgallery.html', context=dict1)
+    return render(request, 'FirstApp/imgsgallery2.html', context=dict1)
+
+import datetime
+def imagegallery2(request):
+    date1 = datetime.datetime.now()
+    msg1 = '***DJango-Image-Gallery(Product)***'
+    dict1 = {'date1': date1, 'msg1': msg1}
+    return render(request, 'FirstApp/imgsgallery2.html', context=dict1)
