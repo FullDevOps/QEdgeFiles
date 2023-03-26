@@ -41,3 +41,10 @@ def wishes4(request):
     msg1='Hello User/Client...GOOD'
     dict1={'date1':date1,'msg1':msg1}
     return render(request,'FirstApp/wishes4.html',context=dict1)
+
+def hyperlinks(request):
+    date1 = datetime.datetime.now()
+    msg1 = '***DJango-Hyperlinks***';
+    dict1 = {'date1': date1, 'msg1': msg1}
+    return render(request, 'FirstApp/hyperlinks.html', context=dict1);
+

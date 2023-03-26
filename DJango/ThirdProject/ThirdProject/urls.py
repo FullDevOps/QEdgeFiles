@@ -24,5 +24,8 @@ urlpatterns = [
     path('imggallery/', views.imagegallery),
     path('imggallery2/', views.imagegallery2),
     path('wishes4/', views.wishes4),
+    #hyperlinks
+    path('hyperlinks/', views.hyperlinks),
+
 
 ]
