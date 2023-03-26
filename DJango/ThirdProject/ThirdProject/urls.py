@@ -21,4 +21,5 @@ from FirstApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wishes3/', views.wishes3),
+    path('imggallery/', views.imagegallery),
 ]

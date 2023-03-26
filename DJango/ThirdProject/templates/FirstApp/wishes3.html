@@ -4,19 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Static Files in DJango App</title>
-    <style>
-        #h11{
-            color:blue;
-        }
-        #h22{
-            color:green;
-        }
-        #img1{
-            width:400px;
-            height:280px;
-            border:10px Groove Red;
-        }
-    </style>
+    <link href="{% static 'css/style.css' %} rel ="stylesheet" />
 </head>
 <body>
     <h1 id=h11>{{msg1}}</h1>
