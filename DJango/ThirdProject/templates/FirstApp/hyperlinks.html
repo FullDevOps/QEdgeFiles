@@ -101,5 +101,24 @@
         <li><a href="{% static "other/joji1.jpg" %}">Joji1</a></li>
     </ol>
     <hr />
+    <audio controls>
+        <source src="{% static 'music/24by7 party.mp3' %}" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <hr />
+    <video width="320" height="240" controls>
+        <source src="{% static 'video/surya.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video width="320" height="240" controls>
+        <source src="{% static 'video/love.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <hr />
+    <video width="320" height="240" controls>
+        <source src="https://www.youtube.com/watch?v=PkzvqHkV07Y" type="video">
+        Your browser does not support the video tag.
+    </video>
+    <hr />
 </body>
 </html>

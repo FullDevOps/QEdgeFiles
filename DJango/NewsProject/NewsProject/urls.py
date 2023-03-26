@@ -26,4 +26,6 @@ urlpatterns = [
     path('tech/', views.technews),
 
     re_path('^.*$',views.index),
+
+
 ]

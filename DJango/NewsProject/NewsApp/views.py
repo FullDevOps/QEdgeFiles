@@ -33,3 +33,5 @@ def technews(request):
              'submsg3': 'Tech-jobs more in India than elsewhere in the world',
              'photo': 'images/image3.jpg'};
     return render(request, 'NewsApp/news.html', context=dict1);
+
+
