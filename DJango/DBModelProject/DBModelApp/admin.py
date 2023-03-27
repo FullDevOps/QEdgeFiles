@@ -6,3 +6,6 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_display=['eno','ename','esal','eaddr'];
 
 admin.site.register(Employee,EmployeeAdmin);
+
+from DBModelApp.models import Company
+admin.site.register(Company)
