@@ -20,4 +20,5 @@ from DBModelApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('empdata/', views.empdata),
+    path('compdata/', views.companydata),
 ]
