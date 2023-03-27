@@ -8,4 +8,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 admin.site.register(Employee,EmployeeAdmin);
 
 from DBModelApp.models import Company
-admin.site.register(Company)
+
+
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ['compid', 'compname', 'noofemps', 'compaddr', 'compsharevalue']
+
+admin.site.register(Company,CompanyAdmin)

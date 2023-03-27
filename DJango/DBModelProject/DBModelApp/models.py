@@ -11,9 +11,12 @@ class Employee(models.Model):
         return 'Employee Object with eno: ' + str(self.eno);
 
 
+from django.db import models
 class Company(models.Model):
     compid= models.IntegerField();
     compname=models.CharField(max_length=50);
     noofemps=models.IntegerField();
     compaddr=models.CharField(max_length=100);
     compsharevalue = models.FloatField();
+    #def __str__(self):
+    #    return 'Company object with compid:'+str(self.compid);
