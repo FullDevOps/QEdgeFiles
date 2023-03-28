@@ -16,3 +16,12 @@ def student_homepage(request):				#new
     #students=Student2.objects.all().order_by('marks')  #ASC
     students=Student2.objects.all().order_by('-marks')   #DESC
     return render(request, 'StudentDBApp/index.html', {'students':students})
+
+#form-view(html-form)
+from StudentDBApp import forms;
+#Create your views here.
+def studentinputview(request):
+    formsObj=forms.StudentForm()
+    dict1={'form1':formsObj}
+    return render(request,'StudentDBApp/input.html',context=dict1)
+

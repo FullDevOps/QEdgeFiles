@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('studenthomepage/', views.student_homepage),
 
+    # forms
+    path('studentinputview/', views.studentinputview),
     re_path('^.*$', views.student_homepage),
 ]
