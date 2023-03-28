@@ -88,3 +88,22 @@ def studentloginverifypageview(request):
                 return render(request, 'StudentDBApp/loginunsuccess.html');
     else:
         return render(request, 'StudentDBApp/loginunsuccess.html');
+
+#another-view feedback field
+from django.shortcuts import render;
+from StudentDBApp import forms;
+def feedbackview(request):
+    sentdata=False;
+    formsObj = forms.FeedBackForm();
+    if request.method == 'POST':
+        formsObj = forms.FeedBackForm(request.POST);
+        if formsObj.is_valid():
+            print('Form Validation Success and printing information');
+            print('Name:', formsObj.cleaned_data['name'])
+            print('Roll No:', formsObj.cleaned_data['rollno'])
+            print('Email:', formsObj.cleaned_data['email'])
+            print('FeedBack:', formsObj.cleaned_data['feedback'])
+            formsObj = forms.FeedBackForm();
+            sentdata=True;
+    return render(request, 'StudentDBApp/feedback.html', {'form1': formsObj,'sentdata':sentdata});
+

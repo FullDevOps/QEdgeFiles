@@ -31,6 +31,9 @@ urlpatterns = [
 
     path('studentloginverifypage/', views.studentloginverifypageview),
 
+    #feedback view
+    path('studentfeedback/', views.feedbackview),  ##add-in-last
+
     #use in last
     re_path('^.*$', views.student_homepage),
 ]
