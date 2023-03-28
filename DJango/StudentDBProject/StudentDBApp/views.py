@@ -25,3 +25,17 @@ def studentinputview(request):
     dict1={'form1':formsObj}
     return render(request,'StudentDBApp/input.html',context=dict1)
 
+import time;
+from StudentDBApp import forms;
+def studentinputverifyview(request):
+    if request.method == 'POST':
+        formsObj = forms.StudentForm(request.POST);
+        if formsObj.is_valid():
+            print('Form-Request validation success and printing data');
+            time.sleep(5)
+            print('Name:', formsObj.cleaned_data['name'])
+            print('Marks:', formsObj.cleaned_data['marks'])
+            formsObj = forms.StudentForm();     #empty-form
+            dict1 = {'form1': formsObj,'msg':'Data Submitted successfully...(Enter another data)'}
+    return render(request, 'StudentDBApp/input.html',context=dict1);
+
