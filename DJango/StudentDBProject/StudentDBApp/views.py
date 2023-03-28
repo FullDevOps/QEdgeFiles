@@ -60,3 +60,31 @@ def studentinputview2(request):
     dict1={'form1': formObj}
     return render(request,'StudentDBApp/input2.html',context=dict1);
 
+from django.shortcuts import render
+from StudentDBApp.forms import StudentLoginForm
+#Create your views here>
+def studentloginpageview(request):
+    formObj=StudentLoginForm(); #Empty-form
+    dict1={'form1': formObj}
+    return render(request,'StudentDBApp/login.html',context=dict1);
+
+
+def studentloginverifypageview(request):
+    sentdata = False;  # intially get-method(url)
+    if request.method=='POST':
+        formObj=StudentLoginForm(request.POST)
+        if formObj.is_valid():
+            print('Login-Form-Request-data Validation Success and printing data')
+            print('User-Name : ',formObj.cleaned_data['username'])
+            print('Password : ',formObj.cleaned_data['password'])
+            username = formObj.cleaned_data['username'];
+            password = formObj.cleaned_data['password'];
+            if username=="sai" and password=="ram":
+                sentdata=True;  #post-method(Form-submit)
+                username = formObj.cleaned_data['username'];
+                dict1 = {'sentdata': sentdata, 'username':username}
+                return render(request, 'StudentDBApp/loginsuccess.html', context=dict1);
+            else:
+                return render(request, 'StudentDBApp/loginunsuccess.html');
+    else:
+        return render(request, 'StudentDBApp/loginunsuccess.html');
