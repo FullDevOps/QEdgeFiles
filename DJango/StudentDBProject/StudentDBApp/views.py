@@ -39,3 +39,24 @@ def studentinputverifyview(request):
             dict1 = {'form1': formsObj,'msg':'Data Submitted successfully...(Enter another data)'}
     return render(request, 'StudentDBApp/input.html',context=dict1);
 
+import time;
+from django.shortcuts import render
+from StudentDBApp.forms import StudentForm
+#Create your views here>
+def studentinputview2(request):
+    sentdata=False;
+    if request.method=='POST':
+        formObj=StudentForm(request.POST)
+        if formObj.is_valid():
+            print('Form-Request-data Validation Success and printing data')
+            time.sleep(5)
+            print('Name:',formObj.cleaned_data['name'])
+            print('Marks:',formObj.cleaned_data['marks'])
+            sentdata=True;
+            formObj = StudentForm();            #empty-form
+            dict1 = {'form1': formObj, 'sentdata': sentdata}
+            return render(request, 'StudentDBApp/thankyou.html', context=dict1);
+    formObj=StudentForm();
+    dict1={'form1': formObj}
+    return render(request,'StudentDBApp/input2.html',context=dict1);
+
