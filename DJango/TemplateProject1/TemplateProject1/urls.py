@@ -22,5 +22,6 @@ urlpatterns = [
     path('tempinherit/', views.f1),
     path('tempinherit1/', views.f11),
     path('demo1/', views.demo1),
+    path('demo2/', views.demo2),
 
 ]

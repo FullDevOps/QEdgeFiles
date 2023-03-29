@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Custom-Filters</title>
+    </head>
+    <body>
+        <h1>Custom Filters</h1>
+        <hr />
+        {%load cust_filters%}
+        {%load custom_filters2%}
+        {%load custom_filters3%}
+        {%load custom_filters4%}
+        <ul>
+            <li>{{name|c_and_c:'Krishna'}}</li>
+            <li>{{subject|truncate5}}</li>
+            <li>{{dept|t_n:3}}</li>
+            <li>{{date1|timesince}}</li>
+            <li>{{date1|date:"d-m-Y"}}</li>
+        </ul>
+        <hr/>
+    </body>
+</html>
