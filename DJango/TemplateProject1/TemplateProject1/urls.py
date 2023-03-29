@@ -19,5 +19,6 @@ from MyApps1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tempinherit/',views.f1),
+    path('tempinherit/', views.f1),
+    path('tempinherit1/', views.f11),
 ]
