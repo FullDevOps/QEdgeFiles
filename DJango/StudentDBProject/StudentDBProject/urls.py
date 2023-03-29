@@ -18,7 +18,7 @@ from django.urls import path
 from django.urls import re_path
 from StudentDBApp import views
 
-urlpatterns = [
+urlpatterns = {
     path('admin/', admin.site.urls),
     path('studenthomepage/', views.student_homepage),
 
@@ -31,9 +31,11 @@ urlpatterns = [
 
     path('studentloginverifypage/', views.studentloginverifypageview),
 
-    #feedback view
+    # feedback view
     path('studentfeedback/', views.feedbackview),  ##add-in-last
 
-    #use in last
+    path('studentsignup/', views.signup_form_view),
+
+    # use in last
     re_path('^.*$', views.student_homepage),
-]
+}

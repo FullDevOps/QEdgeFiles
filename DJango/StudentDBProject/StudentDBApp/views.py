@@ -44,7 +44,7 @@ from django.shortcuts import render
 from StudentDBApp.forms import StudentForm
 #Create your views here>
 def studentinputview2(request):
-    sentdata=False;
+    sentdata=False
     if request.method=='POST':
         formObj=StudentForm(request.POST)
         if formObj.is_valid():
@@ -90,20 +90,35 @@ def studentloginverifypageview(request):
         return render(request, 'StudentDBApp/loginunsuccess.html');
 
 #another-view feedback field
-from django.shortcuts import render;
-from StudentDBApp import forms;
+from django.shortcuts import render
+from StudentDBApp import forms
 def feedbackview(request):
-    sentdata=False;
-    formsObj = forms.FeedBackForm();
+    sentdata=False
+    formsObj = forms.FeedBackForm()
     if request.method == 'POST':
-        formsObj = forms.FeedBackForm(request.POST);
+        formsObj = forms.FeedBackForm(request.POST)
         if formsObj.is_valid():
-            print('Form Validation Success and printing information');
+            print('Form Validation Success and printing information')
             print('Name:', formsObj.cleaned_data['name'])
             print('Roll No:', formsObj.cleaned_data['rollno'])
             print('Email:', formsObj.cleaned_data['email'])
             print('FeedBack:', formsObj.cleaned_data['feedback'])
-            formsObj = forms.FeedBackForm();
-            sentdata=True;
-    return render(request, 'StudentDBApp/feedback.html', {'form1': formsObj,'sentdata':sentdata});
+            formsObj = forms.FeedBackForm()
+            sentdata=True
+    return render(request, 'StudentDBApp/feedback.html', {'form1': formsObj,'sentdata':sentdata})
 
+from django.shortcuts import render;
+from StudentDBApp.forms import SignupForm
+def signup_form_view(request):
+    sentdata = False;
+    formsObj=SignupForm();      #empty-form
+    if request.method=='POST':
+        formsObj=SignupForm(request.POST)       #formobj with submitted-data
+        if formsObj.is_valid():
+            print('Basic Validation completed and Printing Data...!!!')
+            print('Name:',formsObj.cleaned_data['name'])
+            print('Password:',formsObj.cleaned_data['password'])
+            print('Email:',formsObj.cleaned_data['email'])
+            formsObj = SignupForm();  #again-empty-form
+            sentdata=True;
+    return render(request,'StudentDBApp/signup.html',{'form1':formsObj,'sentdata':sentdata})

@@ -53,6 +53,20 @@ class FeedBackForm(forms.Form):
     # email = forms.EmailField(validators=[validators.EmailValidator])
 
 
+class SignupForm(forms.Form):
+    name = forms.CharField(label='Enter your name :')
+    password = forms.CharField(widget=forms.PasswordInput)
+    repassword = forms.CharField(label='Reenter Password', widget=forms.PasswordInput)
+    email = forms.EmailField()
+
+    def clean(self):
+        total_cleaned_data = super().clean()
+        pwd = total_cleaned_data['password']
+        rpwd = total_cleaned_data['repassword']
+        if pwd != rpwd:
+            raise forms.ValidationError('Both Passwords must be same...!!!')
+
+
 '''
 	def clean_name(self):
 		print('validating name-field...');
