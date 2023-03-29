@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MyApps1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tempinherit/',views.f1),
 ]
