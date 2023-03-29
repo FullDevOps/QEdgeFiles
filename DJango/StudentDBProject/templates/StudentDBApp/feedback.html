@@ -11,13 +11,12 @@
             <h1>Student Feedback Form</h1>
             <hr />
             {% if sentdata %}
-                <p>Thank your rou valuable feedback....!!!</p>
-                <p>Submit another one...</p>
+                <h3>Feedback Taken success...(submit-another)</h3>
             {% endif %}
-            <form class="" action="" method="post">
+            <form action="." method="post">
                 {{form1.as_p}}
                 {%csrf_token%}
-                <input type="submit" value="Submit-Feedback">
+                <input type="submit" value="Submit Feedback">
             </form>
         </div>
     </body>
