@@ -23,5 +23,8 @@ urlpatterns = [
     path('tempinherit1/', views.f11),
     path('demo1/', views.demo1),
     path('demo2/', views.demo2),
+    # template-url tag
+    path('demo3/', views.demo3, name='demo3'),
+    path('thankyou/', views.thankyou, name='thankyou'),
 
 ]

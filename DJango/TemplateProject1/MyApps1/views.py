@@ -22,3 +22,8 @@ def demo2(request):
     date1 = datetime.datetime.now()
     dict1 = {'name': 'SaiRamKumar', 'subject': 'CSEEngg', 'dept': 'CSEDept', 'date1': date1}
     return render(request, 'MyApps1/demo2.html', context=dict1)
+def demo3(request):
+    return render(request,'MyApps1/demo3.html');
+
+def thankyou(request):
+    return render(request,'MyApps1/thankyou.html');
