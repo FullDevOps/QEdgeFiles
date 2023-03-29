@@ -19,17 +19,33 @@ def starts_with_s(value):
 
 # (already-done, re-use-it)
 from django import forms
-from django.core import validators
 
 
 class FeedBackForm(forms.Form):
     # name = forms.CharField()
-    name = forms.CharField(validators=[starts_with_s])
+    # name = forms.CharField(validators=[starts_with_s])
+    # rollno = forms.IntegerField()
+    # email = forms.EmailField()
+    # feedback = forms.CharField(widget=forms.Textarea)
+    # feedback = forms.CharField(widget=forms.Textarea, validators=[validators.MinLengthValidator(10), validators.MaxLengthValidator(30)])
+    name = forms.CharField()
     rollno = forms.IntegerField()
     email = forms.EmailField()
-    # feedback = forms.CharField(widget=forms.Textarea)
-    feedback = forms.CharField(widget=forms.Textarea,
-                               validators=[validators.MinLengthValidator(10), validators.MaxLengthValidator(30)])
+    feedback = forms.CharField(widget=forms.Textarea)
+
+    def clean(self):
+        print('Total Form validation... is getting done!!!')
+
+        total_cleaned_data = super().clean()  # gets complete form submitted data
+        inputname = total_cleaned_data['name']
+        if inputname[0].lower() != 's':
+            raise forms.ValidationError('Name parameter should start with S or s only...');
+        inputrollno = total_cleaned_data['rollno']
+        if inputrollno <= 0:
+            raise forms.ValidationError('Rollno should be > 0...')
+        inputfeedback = total_cleaned_data['feedback']
+        if len(inputfeedback) < 10 or len(inputfeedback) > 50:
+            raise forms.ValidationError('Feedback should be min 10-chars & max 50-chars...')
 
     # other core validators using django
     # name = forms.CharField(validators=[validators.RegexValidator('[ASGZ].*')])
