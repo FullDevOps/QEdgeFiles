@@ -12,23 +12,30 @@ class StudentLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 
+def starts_with_s(value):
+    if value[0].lower() != 's':
+        raise forms.ValidationError('Name should starts with s or S only...')
 
 
 # (already-done, re-use-it)
 from django import forms
 from django.core import validators
+
+
 class FeedBackForm(forms.Form):
-    name = forms.CharField()
+    # name = forms.CharField()
+    name = forms.CharField(validators=[starts_with_s])
     rollno = forms.IntegerField()
     email = forms.EmailField()
-    #feedback = forms.CharField(widget=forms.Textarea)
-    feedback = forms.CharField(widget=forms.Textarea,validators=[validators.MinLengthValidator(10),validators.MaxLengthValidator(30)])
+    # feedback = forms.CharField(widget=forms.Textarea)
+    feedback = forms.CharField(widget=forms.Textarea,
+                               validators=[validators.MinLengthValidator(10), validators.MaxLengthValidator(30)])
 
     # other core validators using django
-
     # name = forms.CharField(validators=[validators.RegexValidator('[ASGZ].*')])
     # rollno = forms.IntegerField(validators=[validators.RegexValidator('[6-9]\d{5}')])
     # email = forms.EmailField(validators=[validators.EmailValidator])
+
 
 '''
 	def clean_name(self):
