@@ -65,6 +65,12 @@ class SignupForm(forms.Form):
         rpwd = total_cleaned_data['repassword']
         if pwd != rpwd:
             raise forms.ValidationError('Both Passwords must be same...!!!')
+        if len(pwd) < 8 or len(pwd) > 15:
+            raise forms.ValidationError('Password should be min=8 & max=15 chars...')
+        if len(rpwd) < 8 or len(rpwd) > 15:
+            raise forms.ValidationError('Re-Password should be min=8 & max=15 chars...')
+        if not pwd.isupper() or not pwd.islower() or not pwd.isnum():
+            raise forms.ValidationError('Passwaord must contain 1-upper, 1-lower, 1-digit, 1-sp-char...')
 
 
 '''
