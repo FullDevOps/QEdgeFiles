@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{%extends 'MyApps1/base.html'%}
+{%block child_block%}
+    <h2>Template-Filter-Information</h2>
+    <hr />
+    {%load cust_filters%}
+    <ul>
+        <li>{{msg1|lower}}</li>
+        <li>{{msg2|upper}}</li>
+        <li>{{msg3|add:" ----- Sai"}}</li>
+        <li>{{msg4|f5upper}}</li>
+        <li>{{msg5}}</li>
+    </ul>
+{%endblock%}

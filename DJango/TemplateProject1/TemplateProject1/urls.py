@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tempinherit/', views.f1),
     path('tempinherit1/', views.f11),
+    path('demo1/', views.demo1),
+
 ]
