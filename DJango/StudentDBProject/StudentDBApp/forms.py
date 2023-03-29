@@ -1,28 +1,36 @@
 # (write from-class)
 from django import forms
+
+
 class StudentForm(forms.Form):
-    name=forms.CharField()
-    marks=forms.IntegerField()
+    name = forms.CharField()
+    marks = forms.IntegerField()
+
 
 class StudentLoginForm(forms.Form):
-	username=forms.CharField();
-	password=forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
 
-from django import forms;
-class FeedBackForm(forms.Form):
-	name = forms.CharField()
-	rollno = forms.IntegerField()
-	email = forms.EmailField()
-	feedback = forms.CharField(widget=forms.Textarea)
 
-from django import forms;
+
+
+# (already-done, re-use-it)
+from django import forms
 from django.core import validators
 class FeedBackForm(forms.Form):
-	name = forms.CharField()
-	rollno = forms.IntegerField()
-	email = forms.EmailField()
-	feedback = forms.CharField(widget=forms.Textarea)
+    name = forms.CharField()
+    rollno = forms.IntegerField()
+    email = forms.EmailField()
+    #feedback = forms.CharField(widget=forms.Textarea)
+    feedback = forms.CharField(widget=forms.Textarea,validators=[validators.MinLengthValidator(10),validators.MaxLengthValidator(30)])
 
+    # other core validators using django
+
+    # name = forms.CharField(validators=[validators.RegexValidator('[ASGZ].*')])
+    # rollno = forms.IntegerField(validators=[validators.RegexValidator('[6-9]\d{5}')])
+    # email = forms.EmailField(validators=[validators.EmailValidator])
+
+'''
 	def clean_name(self):
 		print('validating name-field...');
 		inputname = self.cleaned_data['name'];
@@ -50,3 +58,4 @@ class FeedBackForm(forms.Form):
 		if len(inputfeedback) < 3:
 			raise forms.ValidationError('Feedback-field cannot be less than 3-chars...');
 		return inputfeedback
+		'''
