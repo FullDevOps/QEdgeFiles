@@ -13,3 +13,18 @@ class HelloWorldView(View):
         <h4>***ALL THE BEST***</h4>
         '''
         return HttpResponse(ss)
+
+
+from django.views.generic import TemplateView
+
+
+class TemplateCBV(TemplateView):
+    template_name = "MyApps1/home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)  # this two lines are inportant
+
+        context['name'] = 'Sai'
+        context['age'] = 23
+        context['height'] = 6.2
+        return context
