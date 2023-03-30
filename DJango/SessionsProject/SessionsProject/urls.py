@@ -25,4 +25,9 @@ urlpatterns = [
     # application-1
     path('count_view/', views.count_view),
 
+    # application-2
+    path('home_view/', views.home_view),
+    path('second/', views.date_time_view),
+    path('result/', views.result_view),
+
 ]
