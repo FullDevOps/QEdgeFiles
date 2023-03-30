@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MyApps1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # session-application-1
+    path('pagecount/', views.page_count_view),
+
 ]
