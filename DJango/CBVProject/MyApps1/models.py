@@ -8,3 +8,13 @@ class Book(models.Model):
     author = models.CharField(max_length=50)
     pages = models.IntegerField()
     price = models.FloatField()
+
+
+# DetailView
+from django.db import models
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=128)
+    location = models.CharField(max_length=64)
+    ceo = models.CharField(max_length=64)

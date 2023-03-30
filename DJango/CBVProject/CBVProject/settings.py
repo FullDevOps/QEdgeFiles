@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
         'PORT': '3306',  # 3302 or 3308
-        'NAME': 'bookdb',
+        'NAME': 'companydb',
         'USER': 'root',
         'PASSWORD': 'root',
     }
