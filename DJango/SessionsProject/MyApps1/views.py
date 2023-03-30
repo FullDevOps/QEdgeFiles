@@ -62,7 +62,7 @@ def name_view(request):
 def age_view(request):
     name = request.GET['name']
     response = render(request, 'MyApps1/age.html', {'name': name})
-    response.set_cookie('name', name,120)
+    response.set_cookie('name', name, 120)
     return response
 
 
@@ -70,7 +70,7 @@ def parent_view(request):
     age = request.GET['age']
     name = request.COOKIES['name']
     response = render(request, 'MyApps1/parent.html', {'name': name})
-    response.set_cookie('age', age,120)
+    response.set_cookie('age', age, 120)
     return response
 
 
@@ -81,3 +81,28 @@ def result1_view(request):
     response = render(request, 'MyApps1/result1.html', {'name': name, 'age': age, 'pname': pname})
     response.set_cookie('pname', pname, 120)
     return response
+
+
+from MyApps1.forms import ItemAddForm
+
+
+def index1(request):
+    return render(request, 'MyApps1/home1.html')
+
+
+def additem_view(request):
+    formobj = ItemAddForm()
+    response = render(request, 'MyApps1/additem.html', {'formobj': formobj})
+    if request.method == 'POST':
+        formobj = ItemAddForm(request.POST)
+        if formobj.is_valid():
+            name = formobj.cleaned_data['name']
+            quantity = formobj.cleaned_data['quantity']
+            print(name, quantity)
+            response.set_cookie(name, quantity, 180)  # cookie-age is 180-sec or 3-minutes only
+            # return index(request)
+    return response
+
+
+def displayitem_view(request):
+    return render(request, 'MyApps1/showitems.html')

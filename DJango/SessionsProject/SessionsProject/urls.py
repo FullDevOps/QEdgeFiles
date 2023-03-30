@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from MyApps1 import views
 
-urlpatterns = [
+urlpatterns = {
     path('admin/', admin.site.urls),
     path('index/', views.index),
     path('check_view/', views.check_view),
@@ -36,4 +36,9 @@ urlpatterns = [
     path('parent_view/', views.parent_view),
     path('result1_view/', views.result1_view),
 
-]
+    # application-4
+    path('home1/', views.index1),
+    path('additem/', views.additem_view),
+    path('displayitems/', views.displayitem_view),
+
+}
