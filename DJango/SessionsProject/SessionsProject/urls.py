@@ -30,4 +30,10 @@ urlpatterns = [
     path('second/', views.date_time_view),
     path('result/', views.result_view),
 
+    # application-3
+    path('name_view/', views.name_view),
+    path('age_view/', views.age_view),
+    path('parent_view/', views.parent_view),
+    path('result1_view/', views.result1_view),
+
 ]
