@@ -23,4 +23,10 @@ urlpatterns = [
     # session-application-1
     path('pagecount/', views.page_count_view),
 
+    # Session-Application-2
+    path('name/', views.name_view),
+    path('age/', views.age_view),
+    path('parent/', views.parent_view),
+    path('results/', views.result_view),
+
 ]
