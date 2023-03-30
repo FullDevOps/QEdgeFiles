@@ -7,3 +7,11 @@ class AgeForm(forms.Form):
 
 class ParentForm(forms.Form):    #Parent-Form
     pname=forms.CharField()
+
+
+from django import forms
+
+
+class AddItemForm(forms.Form):
+    name = forms.CharField()
+    quantity = forms.IntegerField()

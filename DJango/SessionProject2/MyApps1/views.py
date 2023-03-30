@@ -39,3 +39,18 @@ def result_view(request):
     pname = request.GET['pname']
     request.session['pname'] = pname
     return render(request, 'MyApps1/results.html')
+
+
+def add_item_view(request):
+    formobj = AddItemForm()
+    if request.method == 'POST':
+        name = request.POST['name']
+        quantity = request.POST['quantity']
+        request.session[name] = quantity
+        request.session.set_expiry(30)
+        # request.session.set_expiry(0)       #expires when browser is closed...
+    return render(request, 'MyApps1/additem2.html', {'formobj': formobj})
+
+
+def display_items_view(request):
+    return render(request, 'MyApps1/displayitems.html')

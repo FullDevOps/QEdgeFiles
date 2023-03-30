@@ -29,4 +29,8 @@ urlpatterns = [
     path('parent/', views.parent_view),
     path('results/', views.result_view),
 
+    # Application-3
+    path('additem2/', views.add_item_view),
+    path('display/', views.display_items_view),
+
 ]
