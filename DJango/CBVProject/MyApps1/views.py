@@ -28,3 +28,13 @@ class TemplateCBV(TemplateView):
         context['age'] = 23
         context['height'] = 6.2
         return context
+
+
+# ListView
+from MyApps1.models import Book
+from django.views.generic import ListView
+
+
+# Create your views here.
+class BookListView(ListView):
+    model = Book  # book_list=Book.objects.all();
