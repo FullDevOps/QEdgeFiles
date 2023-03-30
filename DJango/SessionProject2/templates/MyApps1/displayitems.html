@@ -23,8 +23,11 @@
                     {%endfor%}
                 </tbody>
             </table> <br /><br />
-            <a href="/additem2/">Click-Here to Add-More-items</a>
-        {%else%}
+                <a href="/additem2">Click-Here to Add-More-items</a>
+                <br /><br />
+                <a href="/clear/">Click-Here to Clear all-items(from Session)...</a>
+
+            {%else%}
             <p>No Items in your shopping cart</p> <br /><br />
             <a href="/additem2/">Click-Here to Add-items...</a>
         {%endif%}

@@ -33,4 +33,6 @@ urlpatterns = [
     path('additem2/', views.add_item_view),
     path('display/', views.display_items_view),
 
+    path('clear/', views.clear_session),
+
 ]

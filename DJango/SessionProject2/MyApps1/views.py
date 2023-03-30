@@ -54,3 +54,12 @@ def add_item_view(request):
 
 def display_items_view(request):
     return render(request, 'MyApps1/displayitems.html')
+
+
+def clear_session(request):
+    # request.session.modified=True
+    # for key in request.session.keys():
+    # del request.session[key]  ##all items will be deleted from session-obj(dict)
+    if request.session:
+        del request.session
+    return render(request, 'MyApps1/displayitems.html')
