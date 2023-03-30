@@ -62,7 +62,7 @@ def name_view(request):
 def age_view(request):
     name = request.GET['name']
     response = render(request, 'MyApps1/age.html', {'name': name})
-    response.set_cookie('name', name)
+    response.set_cookie('name', name,120)
     return response
 
 
@@ -70,7 +70,7 @@ def parent_view(request):
     age = request.GET['age']
     name = request.COOKIES['name']
     response = render(request, 'MyApps1/parent.html', {'name': name})
-    response.set_cookie('age', age)
+    response.set_cookie('age', age,120)
     return response
 
 
@@ -79,5 +79,5 @@ def result1_view(request):
     age = request.COOKIES['age']
     pname = request.GET['pname']
     response = render(request, 'MyApps1/result1.html', {'name': name, 'age': age, 'pname': pname})
-    response.set_cookie('pname', pname)
+    response.set_cookie('pname', pname, 120)
     return response
