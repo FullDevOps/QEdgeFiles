@@ -43,4 +43,7 @@ urlpatterns = [
     path('create/', views.CompanyCreateView.as_view(), name='create'),
     path('update/<pk>', views.CompanyUpdateView.as_view(), name='update'),
 
+    path('delete/<pk>', views.CompanyDeleteView.as_view(), name='delete'),
+    path('companies/', views.CompanyListView.as_view(), name='companies'),
+
 ]

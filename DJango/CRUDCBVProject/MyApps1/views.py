@@ -35,3 +35,14 @@ from django.views.generic import UpdateView
 class CompanyUpdateView(UpdateView):
     model = Company
     fields = ('name', 'ceo')  # auto it takes company_form.html with given-fields
+
+
+# DeleteView(delete-record)
+# from django.core.urlresolvers import reverse_lazy #old-lib
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
+
+
+class CompanyDeleteView(DeleteView):
+    model = Company
+    success_url = reverse_lazy('companies')  # given name="" para. of path()
