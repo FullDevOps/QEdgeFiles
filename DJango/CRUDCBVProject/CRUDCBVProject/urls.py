@@ -15,7 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MyApps1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # CRUD-urls
+    path('create/', views.CompanyCreateView.as_view(), name='create'),
+    path('companies/', views.CompanyListView.as_view()),
+    path('detail/<int:pk>', views.CompanyDetailView.as_view(), name='detail'),
+    # (or)
+    path('detail/<pk>', views.CompanyDetailView.as_view(), name='detail'),
+
+    # DetailView
+    path('create/', views.CompanyCreateView.as_view(), name='create'),
+
+    path('companies/', views.CompanyListView.as_view()),
+    path('detail/<pk>', views.CompanyDetailView.as_view(), name='detail'),
+    # path('detail/<int:pk>',views.CompanyDetailView.as_view(),name='detail'),
+    # DetailView
+    path('companies/', views.CompanyListView.as_view()),
+    path('<pk>/', views.CompanyDetailView.as_view()),  # for old-view
+
+    # this is for re-direction from create-view to detail-view using its name...
+    path('detail/<pk>', views.CompanyDetailView.as_view(), name='detail'),  # new-view
+    # path('detail/<int:pk>',views.CompanyDetailView.as_view(),name='detail'),  #old-style
+
+    path('create/', views.CompanyCreateView.as_view(), name='create'),
+    path('update/<pk>', views.CompanyUpdateView.as_view(), name='update'),
+
 ]
