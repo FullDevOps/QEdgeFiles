@@ -87,3 +87,36 @@ class Employees(models.Model):
     esal = models.FloatField()
     eaddr = models.CharField(max_length=256)
     objects = CustomManager()
+
+#proxy model inheritance
+from django.db import models
+class CustomManager1(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(esal__gte=5000)
+
+class CustomManager2(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().order_by('ename')
+
+class CustomManager3(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(esal__lt=5000)
+
+# create your models here.
+class Employees(models.Model):
+    eno = models.IntegerField()
+    ename = models.CharField(max_length=64)
+    esal = models.FloatField()
+    eaddr = models.CharField(max_length=256)
+    objects = CustomManager1()
+
+class ProxyEmployees1(Employees):
+    objects = CustomManager2()
+    class Meta:
+        proxy = True
+
+class ProxyEmployees2(Employees):
+    objects = CustomManager3()
+    class Meta:
+        proxy = True
+
