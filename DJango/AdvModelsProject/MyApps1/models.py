@@ -69,3 +69,21 @@ class Employees(models.Model):
     ename = models.CharField(max_length=64)
     esal = models.FloatField()
     eaddr = models.CharField(max_length=256)
+
+
+# Custom-Manager
+from django.db import models
+
+
+class CustomManager(models.Manager):
+    def get_queryset(set):
+        return super().get_queryset().order_by('eno')
+
+
+# Create your models here.
+class Employees(models.Model):
+    eno = models.IntegerField()
+    ename = models.CharField(max_length=64)
+    esal = models.FloatField()
+    eaddr = models.CharField(max_length=256)
+    objects = CustomManager()
